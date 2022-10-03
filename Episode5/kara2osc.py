@@ -6,12 +6,11 @@ import threading
 from pythonosc.udp_client import SimpleUDPClient
 
 
-parser = argparse.ArgumentParser(description='Karafun fair scheduler.')
+parser = argparse.ArgumentParser(description='Karafun Current Performer OSC Sender')
 parser.add_argument('-v', '--verbose', action='store_true', dest='verbose', help='enable logging')
-parser.add_argument('--hide-singers', action='store_true', help='hide who queued each song')
 parser.add_argument('channel', help='karafun session id')
-parser.add_argument('ip', help='IP to broadcast on')
-parser.add_argument('port', help='port')
+parser.add_argument('ip', help='IP to broadcast to')
+parser.add_argument('port', help='port to broadcast on')
 args = parser.parse_args()
 
 sio = socketio.Client(logger=args.verbose)
